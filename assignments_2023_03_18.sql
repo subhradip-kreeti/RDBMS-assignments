@@ -1,3 +1,6 @@
+-- postgresql
+
+-- 1.Create the following schema.
 CREATE TABLE regions(
     region_id  SERIAL PRIMARY KEY,
     region_name VARCHAR(255)
@@ -53,7 +56,11 @@ CREATE TABLE dependents(
 )
 
 
--- constraints
+-- 4.Constraints:
+-- First_name and last_name should not be null
+-- Min_salary must be greater than 1000
+-- Max length of postal_code should be 10.
+
 
 ALTER TABLE employees
 ALTER COLUMN first_name SET NOT NULL,
@@ -73,7 +80,11 @@ ADD
 CHECK(LENGTH(pincode)<=10)
 
 
--- column
+-- 3.Column:
+-- In departments table, add a new field ‘manager_name’ of type VARCHAR
+-- REMOVE field max_salary from jobs.
+-- In the locations table, rename postal_code column to pincode.
+
 
 ALTER TABLE employees
 ADD COLUMN manager_name varchar(255);
@@ -84,7 +95,7 @@ DROP COLUMN max_salary;
 ALTER TABLE locations
 RENAME COLUMN postal_code to pincode;
 
--- insert data
+-- 2.Insert 5 rows in the jobs, dependents, regions, countries, locations, departments tables and  10 rows in the Employee table.
 
 INSERT INTO regions(region_name) VALUES ('south_asia');
 INSERT INTO regions(region_name) VALUES ('europe');
